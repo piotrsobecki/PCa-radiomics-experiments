@@ -1,0 +1,12 @@
+# Add any directories, files, or patterns you don't want to be tracked by version control
+.idea
+.idea/**
+**/*.out
+data/**
+target
+target/**
+**/.ipynb_checkpoints
+**/__pycache__
+
+log/**
+venv

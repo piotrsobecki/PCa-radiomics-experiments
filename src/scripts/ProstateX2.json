@@ -1,0 +1,63 @@
+{
+    "base_dir":"log/ProstateX-2_21-06/",
+    "data_dir":"data/ProstateX-2/train/",
+    "test_data_dir":"data/ProstateX-2/test/",
+    "optimization_settings":{
+        "ngen":1000,
+        "indpb":0.05,
+        "sep":";",
+        "n_max":2000,
+        "n":2000,
+        "cv_fold":2
+    },
+    "column_label":"ggg",
+    "knn_n":[3],
+    "scaling_levels":255,
+    "modalities": [ "t2-sag",  "dwi-adc", "ktrans"],
+    "margins": [ 5, 10, 15, 20, 25, 30, 35, 40, 45],
+    "normalizations": {
+        "norm-no":"no"
+    },
+    "baseline_features": {
+        "in_zone_%s":  "in_zone",
+        "ggg":  "ggg"
+    },
+    "meta_features": {
+        "in_zone_%s":  "in_zone",
+        "age":      "age",
+        "weight":   "weight",
+        "size":     "size",
+        "ggg":      "ggg"
+    },
+    "test_features": {
+        "haralick_3d_skew_margin=%s_modality=%s_feature=%s":     {"func": "haralick", "settings": {"shape":3,"reduction": "scipy.stats.skew"}}
+    },
+    "models_dynamic_n":15,
+    "models_dynamic":{
+        "T2-SAG--DWI--KTRANS":{
+             "filter":{
+                "Modality":["t2","dwi","ktrans"]
+            },
+            "groupby":["Modality"]
+        }
+    },
+    "models":{
+        "T2-SAG--DWI--KTRANS":{
+              "features":{
+                    "in_zone_%s":  "in_zone",
+                    "haralick_3d_skew_margin=%d_modality=%s_feature=%d":     {"func": "haralick", "settings": {"shape":3,"reduction": "scipy.stats.skew"}},
+                    "ggg":  "ggg"
+            }
+        }
+    },
+    "test_configuration":"dynamic_model-T2-SAG--DWI--KTRANS-3",
+    "test_models":{
+        "T2-SAG--DWI--KTRANS":{
+                "normalization": "stat_1",
+              "features":{
+                    "in_zone_%s":  "in_zone",
+                    "haralick_3d_skew_margin=%d_modality=%s_feature=%d":     {"func": "haralick", "settings": {"shape":3,"reduction": "scipy.stats.skew"}}
+            }
+        }
+    }
+}

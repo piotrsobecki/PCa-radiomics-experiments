@@ -1,0 +1,34 @@
+2017-06-21 11:20:41,450.450 INFO optimization.do_fit(): Test: baseline
+2017-06-21 11:20:41,451.451 INFO optimization.do_extract_features(): do_extract_features: baseline
+2017-06-21 11:20:41,618.618 ERROR optimization.do_fit(): Test failed:
+baseline
+Error:
+Traceback (most recent call last):
+  File "G:\Programs\Anaconda3\lib\site-packages\prostatex\scripts\optimization.py", line 209, in do_fit
+    self.do_extract_features(name, extractor_settings)
+  File "G:\Programs\Anaconda3\lib\site-packages\prostatex\scripts\optimization.py", line 43, in do_extract_features
+    self.extract_save(name, Extractor(self.dataset, extractor_settings))
+  File "G:\Programs\Anaconda3\lib\site-packages\prostatex\scripts\optimization.py", line 33, in extract_save
+    df_meta, df_features = extractor.extract()
+  File "G:\Programs\Anaconda3\lib\site-packages\prostatex\extractor\extraction.py", line 26, in extract
+    for name, group in self.dataset.data().groupby(['ProxID', 'fid']):
+  File "G:\Programs\Anaconda3\lib\site-packages\prostatex\dataset.py", line 175, in data
+    data = self.merge_data()
+  File "G:\Programs\Anaconda3\lib\site-packages\prostatex\dataset.py", line 183, in merge_data
+    images = self.images()
+  File "G:\Programs\Anaconda3\lib\site-packages\prostatex\dataset.py", line 158, in images
+    return pd.read_csv(os.path.join(self.rel, self.images_file), sep=",")
+  File "G:\Programs\Anaconda3\lib\site-packages\pandas\io\parsers.py", line 655, in parser_f
+    return _read(filepath_or_buffer, kwds)
+  File "G:\Programs\Anaconda3\lib\site-packages\pandas\io\parsers.py", line 405, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "G:\Programs\Anaconda3\lib\site-packages\pandas\io\parsers.py", line 762, in __init__
+    self._make_engine(self.engine)
+  File "G:\Programs\Anaconda3\lib\site-packages\pandas\io\parsers.py", line 966, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "G:\Programs\Anaconda3\lib\site-packages\pandas\io\parsers.py", line 1582, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas\_libs\parsers.pyx", line 394, in pandas._libs.parsers.TextReader.__cinit__ (pandas\_libs\parsers.c:4209)
+  File "pandas\_libs\parsers.pyx", line 710, in pandas._libs.parsers.TextReader._setup_parser_source (pandas\_libs\parsers.c:8873)
+FileNotFoundError: File b'data/ProstateX/train/lesion-information/ProstateX-Images.csv' does not exist
+

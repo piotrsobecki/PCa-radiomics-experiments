@@ -1,0 +1,32 @@
+{
+    "base_dir":"log/ProstateX_2018_full/",
+    "data_dir":"data/ProstateX/train/",
+    "test_data_dir":"data/ProstateX/test/",
+    "optimization_settings":{
+        "ngen":1000,
+        "indpb":0.05,
+        "sep":";",
+        "n_max":2000,
+        "n":2000,
+        "cv_fold":3
+    },
+    "normalization": "stat_1",
+    "column_label":"ClinSig",
+    "knn_n":[3],
+    "scaling_levels":255,
+    "modalities": [  "t2-tra", "t2-sag", "t2-cor", "dwi-adc", "ktrans"],
+    "margins": [ 5, 8, 13, 21],
+    "test_models":{
+        "T2-TRA--DWI--KTRANS":{
+              "features":{
+                    "in_zone_%s":  "in_zone",
+                    "intensity_single_voxel_modality=%s":     "intensity",
+                    "intensity_region_3d_margin=%s_modality=%s_feature=%s":  {"func": "statistics", "settings": {"shape":3}},
+                    "ve_dtcwt_margin=%s_modality=%s_feature=%s":{"func":"ve_dtcwt", "settings":{"shape":3 } },
+                    "haralick_3d_mean_margin=%s_modality=%s_feature=%s":     {"func": "haralick", "settings": {"shape":3,"reduction": "numpy.mean"}},
+                    "haralick_3d_skew_margin=%s_modality=%s_feature=%s":     {"func": "haralick", "settings": {"shape":3,"reduction": "scipy.stats.skew"}},
+                    "haralick_3d_kurtosis_margin=%s_modality=%s_feature=%s": {"func": "haralick", "settings": {"shape":3,"reduction": "scipy.stats.kurtosis"}}
+            }
+        }
+    }
+}

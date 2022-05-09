@@ -1,0 +1,3 @@
+2017-06-25 13:55:40,621.621 INFO optimization.do_extract_features(): do_extract_features: static_model-T2-SAG--DWI--KTRANS
+2017-06-25 14:04:33,210.210 INFO optimization.do_extract_features(): do_extract_features: static_model-T2-SAG--DWI--KTRANS
+2017-06-25 14:12:26,211.211 INFO optimization.do_extract_features(): do_extract_features: static_model-T2-SAG--DWI--KTRANS

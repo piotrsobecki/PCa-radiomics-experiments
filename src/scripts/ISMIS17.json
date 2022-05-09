@@ -1,0 +1,79 @@
+{
+    "base_dir":"log/ISMIS17_29-04/",
+    "data_dir":"data/ProstateX/train/",
+    "optimization_settings":{
+        "ngen":500,
+        "indpb":0.05,
+        "sep":";",
+        "n_max":5000,
+        "n":5000
+    },
+    "knn_n":[1,3,5],
+    "scaling_levels":255,
+    "modalities": ["t2-tra", "t2-sag", "t2-cor", "dwi-adc", "ktrans"],
+    "margins": [-1, 2.5, 5, 7.5, 10, 15, 20, 25, 30, 35, 40, 45],
+    "normalizations": {
+        "norm-no":"no"
+    },
+    "baseline_features": {
+        "in_zone_%s":  "in_zone",
+        "clinsig":  "clinsig"
+    },
+    "meta_features": {
+        "in_zone_%s":  "in_zone",
+        "age":      "age",
+        "weight":   "weight",
+        "size":     "size",
+        "clinsig":  "clinsig"
+    },
+    "models_dynamic":{
+        "ALL-MAIN":{
+             "filter":{
+                "Modality":["t2","dwi","ktrans"]
+            },
+            "groupby":["Modality"]
+        },
+        "T2-ONLY":{
+            "filter":{
+                "Modality":["t2"]
+            },
+            "groupby":["Modality","SubModality"]
+        },
+        "T2-DWI":{
+            "filter":{
+                "Modality":["t2","dwi"]
+            },
+            "groupby":["Modality"]
+        },
+        "T2-KTRANS":{
+             "filter":{
+                "Modality":["t2","ktrans"]
+            },
+            "groupby":["Modality"]
+        },
+        "KTRANS-DWI":{
+            "filter":{
+                "Modality":["dwi","ktrans"]
+            },
+            "groupby":["Modality"]
+        }
+    },
+    "models_merge":{
+        "ALL":[ "dwi-adc_norm-no_all-margins_haralick_3d_skew_margin=%s_modality=%s_feature=%s",
+                "ktrans_norm-no_all-margins_haralick_3d_skew_margin=%s_modality=%s_feature=%s",
+                "t2-cor_norm-no_all-margins_haralick_3d_skew_margin=%s_modality=%s_feature=%s",
+                "t2-sag_norm-no_all-margins_haralick_3d_skew_margin=%s_modality=%s_feature=%s",
+                "t2-tra_norm-no_all-margins_haralick_3d_skew_margin=%s_modality=%s_feature=%s"],
+        "T2-DWI-KTRANS":["dynamic_model-T2-ONLY","dynamic_model-KTRANS-DWI"],
+        "T2-KTRANS":["dynamic_model-T2-ONLY","dynamic_model-T2-KTRANS"],
+        "T2-DWI":["dynamic_model-T2-ONLY","dynamic_model-T2-DWI"]
+    },
+    "test_features": {
+        "haralick_3d_skew_margin=%s_modality=%s_feature=%s":     {"func": "haralick", "settings": {"shape":3,"reduction": "scipy.stats.skew"}}
+    }
+}
+
+
+
+
+

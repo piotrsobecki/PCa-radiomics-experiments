@@ -1,0 +1,4 @@
+2018-09-30 20:02:53,133.133 INFO optimization.do_extract_features(): do_extract_features: model_model-T2-TRA--DWI--KTRANS
+2018-09-30 20:02:53,133.133 INFO optimization.do_extract_features(): do_extract_features: model_model-T2-TRA--DWI--KTRANS
+2018-09-30 20:02:53,133.133 INFO dataset.merge_data(): Start merging the data.
+2018-09-30 20:02:53,133.133 INFO dataset.merge_data(): Start merging the data.
