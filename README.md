@@ -3,14 +3,14 @@
 
 ### What is this repository for? ###
 
-PCa classification based on radiomics features - simple models that base on sklearn classifiers.
+PCa classification optimisation experiments based on the radiomics features - simple models that base on the sklearn classifiers.
 See:
 https://www.researchgate.net/publication/317660491_MRI_imaging_texture_features_in_prostate_lesions_classification
 https://www.researchgate.net/publication/317721536_Feature_Extraction_Optimized_For_Prostate_Lesion_Classification
 
 
 
-[Scripts with experiments](src/scripts) base on .json configuration (see [example](src/scripts/example.py) for very brief documentation)
+Python [scripts with experiments](src/scripts) base on the corresponding .json configuration files (see [example](src/scripts/example.py) for very brief documentation)
 
 
 ### How do set up the project? ###
