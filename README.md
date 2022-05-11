@@ -4,16 +4,14 @@
 ### What is this repository for? ###
 
 PCa classification based on radiomics features - simple models that base on sklearn classifiers.
+See:
+https://www.researchgate.net/publication/317660491_MRI_imaging_texture_features_in_prostate_lesions_classification
+https://www.researchgate.net/publication/317721536_Feature_Extraction_Optimized_For_Prostate_Lesion_Classification
+
+
+
 [Scripts with experiments](src/scripts) base on .json configuration (see [example](src/scripts/example.py) for very brief documentation)
 
-ISMIS'17: [configuration](src/scripts/ISMIS17.json) , [script](src/scripts/ISMIS17.py)
-
-https://www.researchgate.net/publication/317660491_MRI_imaging_texture_features_in_prostate_lesions_classification
-
-
-ICBBT'17: [configuration](src/scripts/ICBBT17.json) , [script](src/scripts/ICBBT17.py)
-
-https://www.researchgate.net/publication/317721536_Feature_Extraction_Optimized_For_Prostate_Lesion_Classification
 
 ### How do set up the project? ###
 
